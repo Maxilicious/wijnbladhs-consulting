@@ -6,11 +6,13 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
 const {
   title = 'Wijnbladhs Consulting',
-  description = 'Wijnbladhs Consulting - Professional consulting services.'
+  description = 'Wijnbladhs Consulting - Strategic guidance for business transformation.',
+  image = 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
 } = Astro.props;
 ---
 
@@ -28,6 +30,7 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={image} />
 
     <ViewTransitions />
   </head>
