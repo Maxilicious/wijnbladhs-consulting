@@ -4,10 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#1e3a8a',
-        accent: '#f59e0b',
+        primary: '#1e3a8a', // Deep navy
+        accent: '#f59e0b',  // Warm gold
         'text-dark': '#111827',
         'text-light': '#f3f4f6',
+        'bg-light': '#ffffff',
+        'bg-dark': '#f9fafb', // Professional light gray tone
       },
       fontFamily: {
         sans: ['sans-serif'],
