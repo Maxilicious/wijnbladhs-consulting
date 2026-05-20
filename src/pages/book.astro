@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCalendar from '../components/BookingCalendar.astro';
+---
+
+<Layout title="Book a Consultation | Wijnbladhs Consulting" description="Schedule a meeting with Wijnbladhs Consulting.">
+  <section class="py-20 md:py-32 bg-bg-light">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-primary">Book a Consultation</h1>
+      <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light text-text-dark">
+        Choose a time below to schedule your meeting.
+      </p>
+
+      <div class="max-w-4xl mx-auto">
+        <BookingCalendar />
+      </div>
+    </div>
+  </section>
+</Layout>
