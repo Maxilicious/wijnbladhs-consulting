@@ -1,0 +1,102 @@
+---
+// src/components/BookingCalendar.astro
+const bookingDays = import.meta.env.BOOKING_DAYS || '1,2,3,4,5';
+const bookingMaxDays = import.meta.env.BOOKING_MAX_DAYS_AHEAD || '30';
+---
+
+<div class="booking-widget-container max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 sm:p-8" data-booking-widget data-booking-days={bookingDays} data-booking-max-days={bookingMaxDays}>
+
+  <div class="flex flex-col md:flex-row gap-8">
+
+    <!-- Calendar Section -->
+    <div class="flex-1">
+      <div class="flex justify-between items-center mb-6">
+        <button type="button" class="prev-month text-text-dark hover:text-primary focus:outline-none focus:ring-2 focus:ring-accent rounded-full p-2 transition-colors" aria-label="Previous Month">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <h2 class="month-display text-xl font-semibold text-primary"></h2>
+        <button type="button" class="next-month text-text-dark hover:text-primary focus:outline-none focus:ring-2 focus:ring-accent rounded-full p-2 transition-colors" aria-label="Next Month">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+
+      <div class="calendar-grid grid grid-cols-7 gap-1 sm:gap-2 text-center">
+        <!-- Calendar days will be injected here by JS -->
+      </div>
+    </div>
+
+    <!-- Slots Section -->
+    <div class="flex-1">
+      <div class="slots-container hidden h-full flex flex-col">
+        <h3 class="text-lg font-semibold text-text-dark mb-4">Availability for <span class="selected-date-display font-bold text-primary"></span></h3>
+        <div class="slots-list grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 content-start overflow-y-auto pr-2" style="max-height: 400px;">
+          <!-- Time slots injected by JS -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Booking Form -->
+  <div class="booking-form-container hidden mt-10 pt-8 border-t border-gray-200">
+    <h3 class="text-2xl font-semibold text-primary mb-6">Confirm Booking for <span class="selected-date-display"></span> at <span class="selected-time-display"></span></h3>
+
+    <form class="booking-form w-full max-w-2xl text-left font-sans">
+      <input type="hidden" name="date" />
+      <input type="hidden" name="time" />
+      <input type="hidden" name="duration" value="30" />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label for="name" class="block text-text-dark font-semibold mb-2">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+            class="w-full px-4 py-2 border border-gray-300 rounded-md text-text-dark focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-text-dark font-semibold mb-2">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            class="w-full px-4 py-2 border border-gray-300 rounded-md text-text-dark focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
+          />
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label for="topic" class="block text-text-dark font-semibold mb-2">Meeting Topic</label>
+        <textarea
+          id="topic"
+          name="topic"
+          rows="3"
+          placeholder="What would you like to discuss?"
+          required
+          class="w-full px-4 py-2 border border-gray-300 rounded-md text-text-dark focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors resize-y"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full sm:w-auto bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-md transition duration-300 shadow-sm focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-primary focus:outline-none"
+      >
+        Confirm Booking
+      </button>
+    </form>
+  </div>
+
+  <!-- Status Message -->
+  <div class="status-message hidden mt-6 p-4 rounded-md" aria-live="polite"></div>
+
+</div>
+
+<script>
+  import '../scripts/booking.js';
+</script>
