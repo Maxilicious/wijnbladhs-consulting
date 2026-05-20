@@ -41,6 +41,10 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## ☁️ Deployment
+
+**Note:** This project has been updated to use Astro's `output: 'hybrid'` mode along with the `@astrojs/cloudflare` adapter. It is designed to be deployed to Cloudflare Pages/Workers, rather than traditional pure static hosting.
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
