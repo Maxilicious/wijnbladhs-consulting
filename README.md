@@ -83,6 +83,21 @@ If any variables are required during the build process (e.g., for static site ge
 
 The default deployed URL for this project is: [https://wijnbladhs-consulting.pages.dev](https://wijnbladhs-consulting.pages.dev) (Note: A custom domain might be configured later).
 
+## Automated Cloudflare Pages Deployment
+
+This repository uses GitHub Actions for automated deployment to Cloudflare Pages.
+
+1. **Auto-Deployment**: The workflow (`.github/workflows/deploy.yml`) automatically builds and deploys the application on every `push` to the `main` branch.
+2. **Cloudflare Credentials**: The deployment requires two GitHub Repository Secrets:
+   - `CLOUDFLARE_ACCOUNT_ID`: Obtain this from the Cloudflare dashboard (Workers & Pages -> Overview).
+   - `CLOUDFLARE_API_TOKEN`: Create this in the Cloudflare dashboard (My Profile -> API Tokens -> Create Custom Token) with "Cloudflare Pages" permissions set to "Edit".
+3. **Environment Variables**: For the application to function correctly, particularly the Google Calendar integration and booking features, you must configure the following environment variables in the Cloudflare Pages dashboard under **Settings → Environment variables** *after* the initial deployment:
+   - `GOOGLE_CLIENT_ID`
+   - `GOOGLE_CLIENT_SECRET`
+   - `GOOGLE_REFRESH_TOKEN`
+   - `ADMIN_CALENDAR_EMAIL`
+   - Booking configuration variables (e.g., `BOOKING_DAYS`, `BOOKING_START_HOUR`, etc.)
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
