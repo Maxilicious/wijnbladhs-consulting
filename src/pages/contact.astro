@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout title="Contact | Wijnbladhs Consulting" description="Contact Wijnbladhs Consulting to discuss how our strategic advisory services can help you achieve your business goals.">
+  <section class="py-20 md:py-32 bg-bg-dark">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-primary">Contact Wijnbladhs Consulting</h1>
+      <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light text-text-dark">
+        We're here to help. Reach out to discuss how we can assist you with your business goals.
+      </p>
+
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+        <div class="flex flex-col justify-center">
+          <h2 class="text-2xl font-bold mb-4 text-text-dark">Get in Touch</h2>
+          <p class="mb-6 text-text-dark opacity-90">
+            Fill out the form, or reach out to us directly via email. We strive to respond to all inquiries within 24 hours.
+          </p>
+          <div class="mb-4">
+            <h3 class="text-lg font-semibold text-text-dark mb-2">Email</h3>
+            <a
+              href="mailto:info@wijnbladhs.com"
+              class="text-primary hover:text-accent font-medium transition-colors focus:ring-2 focus:ring-accent focus:outline-none rounded px-1 -mx-1"
+            >
+              info@wijnbladhs.com
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

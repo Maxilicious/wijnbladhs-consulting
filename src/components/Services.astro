@@ -1,0 +1,34 @@
+---
+const services = [
+  {
+    title: "Strategy Consulting",
+    description: "Aligning your business objectives with actionable plans for sustainable growth and competitive advantage."
+  },
+  {
+    title: "Operational Efficiency",
+    description: "Streamlining processes to reduce costs, improve quality, and enhance overall organizational performance."
+  },
+  {
+    title: "Advisory Services",
+    description: "Providing expert guidance to executive teams on critical decisions and change management initiatives."
+  }
+];
+---
+
+<section id="services" aria-labelledby="services-heading" class="py-16 md:py-24 bg-bg-dark">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 id="services-heading" class="text-3xl md:text-4xl font-bold text-primary mb-4">Our Services</h2>
+      <div class="w-24 h-1 bg-accent mx-auto rounded"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+      {services.map(service => (
+        <article class="bg-bg-light p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+          <h3 class="text-2xl font-semibold mb-4 text-primary">{service.title}</h3>
+          <p class="text-text-dark opacity-80 leading-relaxed">{service.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

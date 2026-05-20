@@ -1,12 +1,18 @@
 ---
 ---
 
-<nav class="flex justify-between items-center py-4 px-6 bg-primary text-text-light">
-  <div class="text-xl font-bold font-sans">
-    <a href="/">Wijnbladhs Consulting</a>
+<nav class="flex flex-col md:flex-row justify-between items-center py-4 px-6 bg-primary text-text-light" aria-label="Main Navigation">
+  <div class="text-xl font-bold font-sans flex items-center mb-4 md:mb-0">
+    <a href="/" class="flex items-center gap-2 focus:ring-2 focus:ring-accent focus:outline-none rounded">
+      <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle>
+        <text x="50%" y="50%" text-anchor="middle" stroke="none" stroke-width="1px" dy=".3em" font-size="10" font-weight="bold" fill="currentColor">WC</text>
+      </svg>
+      <span>Wijnbladhs Consulting</span>
+    </a>
   </div>
-  <div class="flex space-x-4 font-sans">
-    <a href="/" class="hover:text-accent transition-colors">Home</a>
-    <a href="/" class="hover:text-accent transition-colors">Contact</a>
+  <div class="flex space-x-6 font-sans">
+    <a href="/" class="hover:text-accent transition-colors focus:ring-2 focus:ring-accent focus:outline-none rounded px-2 py-1" data-astro-prefetch>Home</a>
+    <a href="/contact" class="hover:text-accent transition-colors focus:ring-2 focus:ring-accent focus:outline-none rounded px-2 py-1" data-astro-prefetch>Contact</a>
   </div>
 </nav>
